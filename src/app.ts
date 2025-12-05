@@ -1,5 +1,4 @@
 import { OpenAPIHono } from "@hono/zod-openapi";
-import "dotenv/config";
 import { serveStatic } from "hono/bun";
 import { logger } from "hono/logger";
 import { requestId } from "hono/request-id";
@@ -10,7 +9,7 @@ const app = new OpenAPIHono({
 
 		if (
 			result.error.issues.some((issue) =>
-				issue.path.includes("x-api-key")
+				issue.path.includes("x-api-key"),
 			)
 		) {
 			return c.json(
@@ -19,7 +18,7 @@ const app = new OpenAPIHono({
 					success: false,
 					message: result.error.issues[0]?.message || "Bad request",
 				},
-				401
+				401,
 			);
 		}
 
@@ -29,7 +28,7 @@ const app = new OpenAPIHono({
 				success: false,
 				message: result.error.issues[0]?.message || "Bad request",
 			},
-			400
+			400,
 		);
 	},
 });

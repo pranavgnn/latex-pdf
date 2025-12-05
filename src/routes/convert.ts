@@ -1,6 +1,6 @@
 import { createRoute, z } from "@hono/zod-openapi";
 import app from "@/app";
-import { HeaderSchema, BodySchema } from "@/schemas";
+import { BodySchema, HeaderSchema } from "@/schemas";
 import { generatePDF } from "@/utils/pdf";
 
 const route = createRoute({
@@ -61,7 +61,7 @@ app.openapi(route, async (c) => {
 				success: false,
 				message: "Failed to generate PDF",
 			},
-			500
+			500,
 		);
 	}
 });

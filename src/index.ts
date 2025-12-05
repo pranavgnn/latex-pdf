@@ -16,7 +16,7 @@ app.get(
 		url: "/docs",
 		theme: "default",
 		pageTitle: "LaTeX to PDF API",
-	})
+	}),
 );
 
 export default {

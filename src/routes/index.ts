@@ -7,7 +7,7 @@ app.get("/", (c) => {
 			status: 200,
 			message: "Hello, World!",
 		},
-		200
+		200,
 	);
 });
 

@@ -1,8 +1,8 @@
-import { mkdir, unlink } from "fs/promises";
+import { mkdir, unlink } from "node:fs/promises";
 
 export async function generatePDF(
 	latex: string,
-	id: string
+	id: string,
 ): Promise<Uint8Array> {
 	const tempDir = "./temp";
 	const texPath = `${tempDir}/${id}.tex`;
